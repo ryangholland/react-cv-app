@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import GeneralInfo from "./GeneralInfo";
+import Education from "./Education";
 
 function App() {
 
@@ -20,8 +21,8 @@ function App() {
         name: "Fake University",
         city: "Faketown",
         state: "FL",
-        field: "Computer Science",
-        gradDate: "May 2016",
+        study: "Computer Science",
+        date: "May 2016",
         extraInfo: [
           {
             id: uuidv4(),
@@ -94,12 +95,16 @@ function App() {
       <hr />
       <div>
         <h2>Education:</h2>
-        <p>Filler text</p>
+        {data.education.map(school => {
+          return <Education {...school} key={school.id} />
+        })}
       </div>
       <hr />
       <div>
         <h2>Work Experience:</h2>
-        <div>Filler text</div>
+        {data.workExperience.map(workplace => {
+          return <Education {...workplace} key={workplace.id} />
+        })}
       </div>
     </>
   );
