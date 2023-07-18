@@ -90,7 +90,7 @@ function App() {
 
   return (
     <>
-      <GeneralInfo stuff={data.generalInfo} />
+      <GeneralInfo {...data.generalInfo} />
       <hr />
       <div>
         <h2>Education:</h2>
