@@ -96,6 +96,14 @@ function App() {
     setGeneralInfo({ ...newInfo });
   };
 
+  // Not sure if this works yet
+  const updateEducation = (newInfo, id) => {
+    const schoolToReplace = education.find(school => school.id === id)
+    const newSchool = {...newInfo};
+    const newEducationArray = education.splice(education.indexOf(schoolToReplace, 1, newSchool))
+    setEducation({...newEducationArray})
+  }
+
   const addSchool = () => {
     setEducation([
       ...education,
