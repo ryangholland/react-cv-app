@@ -1,6 +1,15 @@
 import { useState } from "react";
 
-function GeneralInfo({ name, address, city, state, zip, phone, email }) {
+function GeneralInfo({
+  name,
+  address,
+  city,
+  state,
+  zip,
+  phone,
+  email,
+  updateInfo,
+}) {
   const [editMode, setEditMode] = useState(false);
 
   const [newName, setNewName] = useState(name);
@@ -13,6 +22,16 @@ function GeneralInfo({ name, address, city, state, zip, phone, email }) {
 
   const submitChanges = (e) => {
     e.preventDefault();
+
+    updateInfo({
+      name: newName,
+      address: newAddress,
+      city: newCity,
+      state: newState,
+      zip: newZip,
+      phone: newPhone,
+      email: newEmail,
+    });
 
     setEditMode(false);
   };

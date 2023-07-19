@@ -92,9 +92,13 @@ function App() {
   const [education, setEducation] = useState(data.education);
   const [workExperience, setWorkExperience] = useState(data.workExperience);
 
+  const updateGeneralInfo = (newInfo) => {
+    setGeneralInfo({ ...newInfo });
+  };
+
   return (
     <>
-      <GeneralInfo {...generalInfo} />
+      <GeneralInfo {...generalInfo} updateInfo={updateGeneralInfo} />
       <hr />
       <div>
         <h2>Education:</h2>
