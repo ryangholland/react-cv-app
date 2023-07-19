@@ -96,6 +96,47 @@ function App() {
     setGeneralInfo({ ...newInfo });
   };
 
+  const addSchool = () => {
+    setEducation([
+      ...education,
+      {
+        id: uuidv4(),
+        name: "New School",
+        city: "",
+        state: "",
+        study: "",
+        date: "",
+        extraInfo: [
+          {
+            id: uuidv4(),
+            text: "",
+          },
+        ],
+      },
+    ]);
+  };
+
+  const addWorkplace = () => {
+    setWorkExperience([
+      ...workExperience,
+      {
+        id: uuidv4(),
+        name: "New Workplace",
+        city: "",
+        state: "",
+        title: "",
+        startDate: "",
+        endDate: "",
+        extraInfo: [
+          {
+            id: uuidv4(),
+            text: "",
+          },
+        ],
+      },
+    ]);
+  };
+
   return (
     <>
       <GeneralInfo {...generalInfo} updateInfo={updateGeneralInfo} />
@@ -105,6 +146,7 @@ function App() {
         {education.map((school) => {
           return <Education {...school} key={school.id} />;
         })}
+        <button onClick={addSchool}>Add School</button>
       </div>
       <hr />
       <div>
@@ -112,6 +154,7 @@ function App() {
         {workExperience.map((workplace) => {
           return <Education {...workplace} key={workplace.id} />;
         })}
+        <button onClick={addWorkplace}>Add Workplace</button>
       </div>
     </>
   );
