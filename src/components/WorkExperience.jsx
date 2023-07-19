@@ -1,4 +1,4 @@
-function WorkExperience({ name, city, state, title, startDate, endDate extraInfo }) {
+function WorkExperience({ name, city, state, title, startDate, endDate, extraInfo }) {
     return (
       <div>
         <div>

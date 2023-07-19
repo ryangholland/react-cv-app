@@ -4,7 +4,6 @@ import GeneralInfo from "./GeneralInfo";
 import Education from "./Education";
 
 function App() {
-
   const data = {
     generalInfo: {
       name: "John Doe",
@@ -89,21 +88,25 @@ function App() {
     ],
   };
 
+  const [generalInfo, setGeneralInfo] = useState(data.generalInfo);
+  const [education, setEducation] = useState(data.education);
+  const [workExperience, setWorkExperience] = useState(data.workExperience);
+
   return (
     <>
-      <GeneralInfo {...data.generalInfo} />
+      <GeneralInfo {...generalInfo} />
       <hr />
       <div>
         <h2>Education:</h2>
-        {data.education.map(school => {
-          return <Education {...school} key={school.id} />
+        {education.map((school) => {
+          return <Education {...school} key={school.id} />;
         })}
       </div>
       <hr />
       <div>
         <h2>Work Experience:</h2>
-        {data.workExperience.map(workplace => {
-          return <Education {...workplace} key={workplace.id} />
+        {workExperience.map((workplace) => {
+          return <Education {...workplace} key={workplace.id} />;
         })}
       </div>
     </>
