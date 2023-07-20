@@ -36,7 +36,7 @@ function App() {
             text: "Smart Person Club President",
           },
         ],
-        editing: false
+        editing: false,
       },
     ],
     workExperience: [
@@ -99,19 +99,10 @@ function App() {
 
   // Not sure if this works yet
   const updateEducation = (newInfo, id) => {
-    /*
-    const schoolToReplace = education.find(school => school.id === id)
-    const newSchool = {...newInfo};
-    const newEducationArray = education.splice(education.indexOf(schoolToReplace, 1, newSchool))
-    setEducation({...newEducationArray})
-    */
-
-    setEducation(education.map(school => {
-      if (school.id === id) {
-        school = {...newInfo}
-      }
-    }))
-  }
+    setEducation(
+      education.map((school) => (school.id === id ? { ...newInfo } : school))
+    );
+  };
 
   const addSchool = () => {
     setEducation([
@@ -129,7 +120,7 @@ function App() {
             text: "",
           },
         ],
-        editing: true
+        editing: true,
       },
     ]);
   };
@@ -162,7 +153,13 @@ function App() {
       <div>
         <h2>Education:</h2>
         {education.map((school) => {
-          return <Education {...school} key={school.id} />;
+          return (
+            <Education
+              {...school}
+              key={school.id}
+              updateInfo={updateEducation}
+            />
+          );
         })}
         <button onClick={addSchool}>Add School</button>
       </div>
