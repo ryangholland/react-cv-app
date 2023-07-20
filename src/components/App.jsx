@@ -122,6 +122,14 @@ function App() {
             id: uuidv4(),
             text: "",
           },
+          {
+            id: uuidv4(),
+            text: "",
+          },
+          {
+            id: uuidv4(),
+            text: "",
+          },
         ],
         editing: true,
       },

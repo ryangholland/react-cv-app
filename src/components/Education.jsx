@@ -10,7 +10,7 @@ function Education({
   extraInfo,
   editing,
   updateInfo,
-  deleteSchool
+  deleteSchool,
 }) {
   const [editMode, setEditMode] = useState(editing);
 
@@ -19,11 +19,17 @@ function Education({
   const [newState, setNewState] = useState(state);
   const [newStudy, setNewStudy] = useState(study);
   const [newDate, setNewDate] = useState(date);
+  const [newInfo0, setNewInfo0] = useState(extraInfo[0].text);
+  const [newInfo1, setNewInfo1] = useState(extraInfo[1].text);
+  const [newInfo2, setNewInfo2] = useState(extraInfo[2].text);
 
   const submitChanges = (e) => {
     e.preventDefault();
 
-    console.log(id);
+    const newInfo = [...extraInfo];
+    newInfo[0].text = newInfo0;
+    newInfo[1].text = newInfo1;
+    newInfo[2].text = newInfo2;
 
     updateInfo(
       {
@@ -33,7 +39,7 @@ function Education({
         state: newState,
         study: newStudy,
         date: newDate,
-        extraInfo: extraInfo,
+        extraInfo: newInfo,
       },
       id
     );
@@ -81,9 +87,28 @@ function Education({
             type="text"
             id="date"
           ></input>
-          <button onClick={submitChanges}>Submit</button>
+          <label htmlFor="extraInfo0">Extra Info:</label>
+          <input
+            value={newInfo0}
+            onChange={(e) => setNewInfo0(e.target.value)}
+            type="text"
+            id="extraInfo0"
+          ></input>
+          <label htmlFor="extraInfo1">Extra Info:</label>
+          <input
+            value={newInfo1}
+            onChange={(e) => setNewInfo1(e.target.value)}
+            type="text"
+            id="extraInfo1"
+          ></input>
+          <label htmlFor="extraInfo2">Extra Info:</label>
+          <input
+            value={newInfo2}
+            onChange={(e) => setNewInfo2(e.target.value)}
+            type="text"
+            id="extraInfo2"
+          ></input>
         </form>
-
         <button onClick={submitChanges}>Submit</button>
       </div>
     );
@@ -102,7 +127,7 @@ function Education({
         </div>
         <ul>
           {extraInfo.map((item) => {
-            return <li key={item.id}>{item.text}</li>;
+            return item.text ? <li key={item.id}>{item.text}</li> : null;
           })}
         </ul>
         <button onClick={() => setEditMode(true)}>Edit</button>
