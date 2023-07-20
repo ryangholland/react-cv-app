@@ -10,6 +10,7 @@ function Education({
   extraInfo,
   editing,
   updateInfo,
+  deleteSchool
 }) {
   const [editMode, setEditMode] = useState(editing);
 
@@ -105,6 +106,7 @@ function Education({
           })}
         </ul>
         <button onClick={() => setEditMode(true)}>Edit</button>
+        <button onClick={() => deleteSchool(id)}>Delete</button>
       </div>
     );
   }

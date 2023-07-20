@@ -97,11 +97,14 @@ function App() {
     setGeneralInfo({ ...newInfo });
   };
 
-  // Not sure if this works yet
   const updateEducation = (newInfo, id) => {
     setEducation(
       education.map((school) => (school.id === id ? { ...newInfo } : school))
     );
+  };
+
+  const deleteEducation = (id) => {
+    setEducation(education.filter((school) => school.id !== id));
   };
 
   const addSchool = () => {
@@ -158,6 +161,7 @@ function App() {
               {...school}
               key={school.id}
               updateInfo={updateEducation}
+              deleteSchool={deleteEducation}
             />
           );
         })}
