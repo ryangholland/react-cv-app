@@ -2,6 +2,7 @@ import { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import GeneralInfo from "./GeneralInfo";
 import Education from "./Education";
+import WorkExperience from "./WorkExperience";
 
 function App() {
   const data = {
@@ -136,6 +137,18 @@ function App() {
     ]);
   };
 
+  const updateWorkExperience = (newInfo, id) => {
+    setWorkExperience(
+      workExperience.map((workplace) =>
+        workplace.id === id ? { ...newInfo } : workplace
+      )
+    );
+  };
+
+  const deleteWorkExperience = (id) => {
+    setWorkExperience(education.filter((workplace) => workplace.id !== id));
+  };
+
   const addWorkplace = () => {
     setWorkExperience([
       ...workExperience,
@@ -152,7 +165,16 @@ function App() {
             id: uuidv4(),
             text: "",
           },
+          {
+            id: uuidv4(),
+            text: "",
+          },
+          {
+            id: uuidv4(),
+            text: "",
+          },
         ],
+        editing: true,
       },
     ]);
   };
@@ -179,7 +201,14 @@ function App() {
       <div>
         <h2>Work Experience:</h2>
         {workExperience.map((workplace) => {
-          return <Education {...workplace} key={workplace.id} />;
+          return (
+            <WorkExperience
+              {...workplace}
+              key={workplace.id}
+              updateInfo={updateWorkExperience}
+              deleteWorkplace={deleteWorkExperience}
+            />
+          );
         })}
         <button onClick={addWorkplace}>Add Workplace</button>
       </div>

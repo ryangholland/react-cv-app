@@ -50,7 +50,6 @@ function Education({
   if (editMode) {
     return (
       <div>
-        <h1>SCHOOL EDIT MODE</h1>
         <form onSubmit={submitChanges}>
           <label htmlFor="name">Name:</label>
           <input
@@ -110,6 +109,7 @@ function Education({
           ></input>
         </form>
         <button onClick={submitChanges}>Submit</button>
+        <button onClick={() => deleteSchool(id)}>Delete</button>
       </div>
     );
   } else {
