@@ -124,7 +124,7 @@ function Education({
             ></input>
           </div>
         </form>
-        <div>
+        <div className="btns">
           <button onClick={submitChanges}>Submit</button>
           <button onClick={() => deleteSchool(id)}>Delete</button>
         </div>

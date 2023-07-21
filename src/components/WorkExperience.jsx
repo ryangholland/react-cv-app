@@ -52,86 +52,106 @@ function WorkExperience({
 
   if (editMode) {
     return (
-      <div>
+      <div className="edit-mode">
         <form onSubmit={submitChanges}>
-          <label htmlFor="name">Name:</label>
-          <input
-            value={newName}
-            onChange={(e) => setNewName(e.target.value)}
-            type="text"
-            id="name"
-          ></input>
-          <label htmlFor="city">City:</label>
-          <input
-            value={newCity}
-            onChange={(e) => setNewCity(e.target.value)}
-            type="text"
-            id="city"
-          ></input>
-          <label htmlFor="state">State:</label>
-          <input
-            value={newState}
-            onChange={(e) => setNewState(e.target.value)}
-            type="text"
-            id="state"
-          ></input>
-          <label htmlFor="title">Job Title:</label>
-          <input
-            value={newTitle}
-            onChange={(e) => setNewTitle(e.target.value)}
-            type="text"
-            id="title"
-          ></input>
-          <label htmlFor="startDate">Start Date:</label>
-          <input
-            value={newStartDate}
-            onChange={(e) => setNewStartDate(e.target.value)}
-            type="text"
-            id="startDate"
-          ></input>
-          <label htmlFor="endDate">End Date:</label>
-          <input
-            value={newEndDate}
-            onChange={(e) => setNewEndDate(e.target.value)}
-            type="text"
-            id="endDate"
-          ></input>
-          <label htmlFor="extraInfo0">Extra Info:</label>
-          <input
-            value={newInfo0}
-            onChange={(e) => setNewInfo0(e.target.value)}
-            type="text"
-            id="extraInfo0"
-          ></input>
-          <label htmlFor="extraInfo1">Extra Info:</label>
-          <input
-            value={newInfo1}
-            onChange={(e) => setNewInfo1(e.target.value)}
-            type="text"
-            id="extraInfo1"
-          ></input>
-          <label htmlFor="extraInfo2">Extra Info:</label>
-          <input
-            value={newInfo2}
-            onChange={(e) => setNewInfo2(e.target.value)}
-            type="text"
-            id="extraInfo2"
-          ></input>
+          <div>
+            <label htmlFor="name">Name:</label>
+            <input
+              value={newName}
+              onChange={(e) => setNewName(e.target.value)}
+              type="text"
+              id="name"
+            ></input>
+          </div>
+          <div>
+            <label htmlFor="city">City:</label>
+            <input
+              value={newCity}
+              onChange={(e) => setNewCity(e.target.value)}
+              type="text"
+              id="city"
+            ></input>
+          </div>
+          <div>
+            <label htmlFor="state">State:</label>
+            <input
+              value={newState}
+              onChange={(e) => setNewState(e.target.value)}
+              type="text"
+              id="state"
+            ></input>
+          </div>
+          <div>
+            <label htmlFor="title">Job Title:</label>
+            <input
+              value={newTitle}
+              onChange={(e) => setNewTitle(e.target.value)}
+              type="text"
+              id="title"
+            ></input>
+          </div>
+          <div>
+            <label htmlFor="startDate">Start Date:</label>
+            <input
+              value={newStartDate}
+              onChange={(e) => setNewStartDate(e.target.value)}
+              type="text"
+              id="startDate"
+            ></input>
+          </div>
+          <div>
+            <label htmlFor="endDate">End Date:</label>
+            <input
+              value={newEndDate}
+              onChange={(e) => setNewEndDate(e.target.value)}
+              type="text"
+              id="endDate"
+            ></input>
+          </div>
+          <div>
+            <label htmlFor="extraInfo0">Extra Info:</label>
+            <input
+              value={newInfo0}
+              onChange={(e) => setNewInfo0(e.target.value)}
+              type="text"
+              id="extraInfo0"
+            ></input>
+          </div>
+          <div>
+            <label htmlFor="extraInfo1">Extra Info:</label>
+            <input
+              value={newInfo1}
+              onChange={(e) => setNewInfo1(e.target.value)}
+              type="text"
+              id="extraInfo1"
+            ></input>
+          </div>
+          <div>
+            <label htmlFor="extraInfo2">Extra Info:</label>
+            <input
+              value={newInfo2}
+              onChange={(e) => setNewInfo2(e.target.value)}
+              type="text"
+              id="extraInfo2"
+            ></input>
+          </div>
         </form>
-        <button onClick={submitChanges}>Submit</button>
-        <button onClick={() => deleteWorkplace(id)}>Delete</button>
+        <div className="btns">
+          <button onClick={submitChanges}>Submit</button>
+          <button onClick={() => deleteWorkplace(id)}>Delete</button>
+        </div>
       </div>
     );
   } else {
     return (
-      <div>
-        <div>
+      <div className="work-info">
+        <div className="col">
           <h3>{name}</h3>
           <p>
             {city}, {state}
           </p>
         </div>
-        <div>
+        <div className="col">
           <h4>{title}</h4>
           <p>
             {startDate} - {endDate}
@@ -142,8 +162,10 @@ function WorkExperience({
             return item.text ? <li key={item.id}>{item.text}</li> : null;
           })}
         </ul>
-        <button onClick={() => setEditMode(true)}>Edit</button>
-        <button onClick={() => deleteWorkplace(id)}>Delete</button>
+        <div className="btns">
+          <button onClick={() => setEditMode(true)}>Edit</button>
+          <button onClick={() => deleteWorkplace(id)}>Delete</button>
+        </div>
       </div>
     );
   }
