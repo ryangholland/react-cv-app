@@ -182,7 +182,6 @@ function App() {
 
   return (
     <div className="main">
-      
       <div className="resume">
         <GeneralInfo {...generalInfo} updateInfo={updateGeneralInfo} />
         <hr />
@@ -199,8 +198,8 @@ function App() {
               />
             );
           })}
-          <button onClick={addSchool}>Add School</button>
         </div>
+        <button onClick={addSchool} className="add-btn">Add School</button>
         <hr />
         <div>
           <h2>Work Experience:</h2>
@@ -214,8 +213,9 @@ function App() {
               />
             );
           })}
-          <button onClick={addWorkplace}>Add Workplace</button>
+          
         </div>
+        <button onClick={addWorkplace} className="add-btn">Add Workplace</button>
       </div>
 
       <button className="toggle-btn">Toggle Edit Mode</button>

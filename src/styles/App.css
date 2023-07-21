@@ -32,6 +32,13 @@ body {
   border: solid 1px black;
   padding: 1.5rem 3rem;
   min-width: 800px;
+  display: flex;
+  flex-direction: column;
+}
+
+.add-btn {
+    align-self: center;
+    margin: 1rem;
 }
 
 .general-info,
@@ -45,7 +52,8 @@ body {
 }
 
 h1 {
-  font-size: 2rem;
+  font-size: 3rem;
+  font-weight: bold;
 }
 
 form {
@@ -62,4 +70,31 @@ form div {
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+h2 {
+  font-size: 1.75rem;
+  text-transform: uppercase;
+  font-weight: bold;
+  margin-top: 0.5rem;
+}
+
+h3 {
+  font-size: 1.35rem;
+}
+
+.education-info {
+  padding: 0.5rem;
+}
+
+.col {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.btns {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
 }

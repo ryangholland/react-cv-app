@@ -49,79 +49,97 @@ function Education({
 
   if (editMode) {
     return (
-      <div>
+      <div className="edit-mode">
         <form onSubmit={submitChanges}>
-          <label htmlFor="name">Name:</label>
-          <input
-            value={newName}
-            onChange={(e) => setNewName(e.target.value)}
-            type="text"
-            id="name"
-          ></input>
-          <label htmlFor="city">City:</label>
-          <input
-            value={newCity}
-            onChange={(e) => setNewCity(e.target.value)}
-            type="text"
-            id="city"
-          ></input>
-          <label htmlFor="state">State:</label>
-          <input
-            value={newState}
-            onChange={(e) => setNewState(e.target.value)}
-            type="text"
-            id="state"
-          ></input>
-          <label htmlFor="study">Area of Study:</label>
-          <input
-            value={newStudy}
-            onChange={(e) => setNewStudy(e.target.value)}
-            type="text"
-            id="study"
-          ></input>
-          <label htmlFor="date">Graduation Date:</label>
-          <input
-            value={newDate}
-            onChange={(e) => setNewDate(e.target.value)}
-            type="text"
-            id="date"
-          ></input>
-          <label htmlFor="extraInfo0">Extra Info:</label>
-          <input
-            value={newInfo0}
-            onChange={(e) => setNewInfo0(e.target.value)}
-            type="text"
-            id="extraInfo0"
-          ></input>
-          <label htmlFor="extraInfo1">Extra Info:</label>
-          <input
-            value={newInfo1}
-            onChange={(e) => setNewInfo1(e.target.value)}
-            type="text"
-            id="extraInfo1"
-          ></input>
-          <label htmlFor="extraInfo2">Extra Info:</label>
-          <input
-            value={newInfo2}
-            onChange={(e) => setNewInfo2(e.target.value)}
-            type="text"
-            id="extraInfo2"
-          ></input>
+          <div>
+            <label htmlFor="name">Name:</label>
+            <input
+              value={newName}
+              onChange={(e) => setNewName(e.target.value)}
+              type="text"
+              id="name"
+            ></input>
+          </div>
+          <div>
+            <label htmlFor="city">City:</label>
+            <input
+              value={newCity}
+              onChange={(e) => setNewCity(e.target.value)}
+              type="text"
+              id="city"
+            ></input>
+          </div>
+          <div>
+            <label htmlFor="state">State:</label>
+            <input
+              value={newState}
+              onChange={(e) => setNewState(e.target.value)}
+              type="text"
+              id="state"
+            ></input>
+          </div>
+          <div>
+            <label htmlFor="study">Area of Study:</label>
+            <input
+              value={newStudy}
+              onChange={(e) => setNewStudy(e.target.value)}
+              type="text"
+              id="study"
+            ></input>
+          </div>
+          <div>
+            <label htmlFor="date">Graduation Date:</label>
+            <input
+              value={newDate}
+              onChange={(e) => setNewDate(e.target.value)}
+              type="text"
+              id="date"
+            ></input>
+          </div>
+          <div>
+            <label htmlFor="extraInfo0">Extra Info:</label>
+            <input
+              value={newInfo0}
+              onChange={(e) => setNewInfo0(e.target.value)}
+              type="text"
+              id="extraInfo0"
+            ></input>
+          </div>
+          <div>
+            <label htmlFor="extraInfo1">Extra Info:</label>
+            <input
+              value={newInfo1}
+              onChange={(e) => setNewInfo1(e.target.value)}
+              type="text"
+              id="extraInfo1"
+            ></input>
+          </div>
+          <div>
+            <label htmlFor="extraInfo2">Extra Info:</label>
+            <input
+              value={newInfo2}
+              onChange={(e) => setNewInfo2(e.target.value)}
+              type="text"
+              id="extraInfo2"
+            ></input>
+          </div>
         </form>
-        <button onClick={submitChanges}>Submit</button>
-        <button onClick={() => deleteSchool(id)}>Delete</button>
+        <div>
+          <button onClick={submitChanges}>Submit</button>
+          <button onClick={() => deleteSchool(id)}>Delete</button>
+        </div>
       </div>
     );
   } else {
     return (
-      <div>
-        <div>
+      <div className="education-info">
+        <div className="col">
           <h3>{name}</h3>
           <p>
             {city}, {state}
           </p>
         </div>
-        <div>
+        <div className="col">
           <h4>{study}</h4>
           <p>{date}</p>
         </div>
@@ -130,8 +148,10 @@ function Education({
             return item.text ? <li key={item.id}>{item.text}</li> : null;
           })}
         </ul>
-        <button onClick={() => setEditMode(true)}>Edit</button>
-        <button onClick={() => deleteSchool(id)}>Delete</button>
+        <div className="btns">
+          <button onClick={() => setEditMode(true)}>Edit</button>
+          <button onClick={() => deleteSchool(id)}>Delete</button>
+        </div>
       </div>
     );
   }
