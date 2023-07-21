@@ -12,6 +12,7 @@ function WorkExperience({
   editing,
   updateInfo,
   deleteWorkplace,
+  cvEdit,
 }) {
   const [editMode, setEditMode] = useState(editing);
 
@@ -162,10 +163,12 @@ function WorkExperience({
             return item.text ? <li key={item.id}>{item.text}</li> : null;
           })}
         </ul>
-        <div className="btns">
-          <button onClick={() => setEditMode(true)}>Edit</button>
-          <button onClick={() => deleteWorkplace(id)}>Delete</button>
-        </div>
+        {cvEdit ? (
+          <div className="btns">
+            <button onClick={() => setEditMode(true)}>Edit</button>
+            <button onClick={() => deleteWorkplace(id)}>Delete</button>
+          </div>
+        ) : null}
       </div>
     );
   }

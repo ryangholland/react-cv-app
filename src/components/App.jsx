@@ -91,6 +91,7 @@ function App() {
     ],
   };
 
+  const [cvEdit, setCvEdit] = useState(true);
   const [generalInfo, setGeneralInfo] = useState(data.generalInfo);
   const [education, setEducation] = useState(data.education);
   const [workExperience, setWorkExperience] = useState(data.workExperience);
@@ -183,7 +184,11 @@ function App() {
   return (
     <div className="main">
       <div className="resume">
-        <GeneralInfo {...generalInfo} updateInfo={updateGeneralInfo} />
+        <GeneralInfo
+          {...generalInfo}
+          updateInfo={updateGeneralInfo}
+          cvEdit={cvEdit}
+        />
         <hr />
         <hr />
         <div>
@@ -195,11 +200,16 @@ function App() {
                 key={school.id}
                 updateInfo={updateEducation}
                 deleteSchool={deleteEducation}
+                cvEdit={cvEdit}
               />
             );
           })}
         </div>
-        <button onClick={addSchool} className="add-btn">Add School</button>
+        {cvEdit ? (
+          <button onClick={addSchool} className="add-btn">
+            Add School
+          </button>
+        ) : null}
         <hr />
         <div>
           <h2>Work Experience:</h2>
@@ -210,15 +220,22 @@ function App() {
                 key={workplace.id}
                 updateInfo={updateWorkExperience}
                 deleteWorkplace={deleteWorkExperience}
+                cvEdit={cvEdit}
               />
             );
           })}
-          
         </div>
-        <button onClick={addWorkplace} className="add-btn">Add Workplace</button>
+
+        {cvEdit ? (
+          <button onClick={addWorkplace} className="add-btn">
+            Add Workplace
+          </button>
+        ) : null}
       </div>
 
-      <button className="toggle-btn">Toggle Edit Mode</button>
+      <button className="toggle-btn" onClick={() => setCvEdit(!cvEdit)}>
+        Toggle Edit Mode
+      </button>
     </div>
   );
 }

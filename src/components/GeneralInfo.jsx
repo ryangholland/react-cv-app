@@ -9,6 +9,7 @@ function GeneralInfo({
   phone,
   email,
   updateInfo,
+  cvEdit,
 }) {
   const [editMode, setEditMode] = useState(false);
 
@@ -114,7 +115,10 @@ function GeneralInfo({
         <p>
           {address} - {city}, {state} {zip} - {phone} - {email}
         </p>
-        <button onClick={() => setEditMode(true)}>Edit</button>
+
+        {cvEdit ? (
+          <button onClick={() => setEditMode(true)}>Edit</button>
+        ) : null}
       </div>
     );
   }
