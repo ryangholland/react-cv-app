@@ -3,6 +3,7 @@ import { v4 as uuidv4 } from "uuid";
 import GeneralInfo from "./GeneralInfo";
 import Education from "./Education";
 import WorkExperience from "./WorkExperience";
+import "../styles/App.css";
 
 function App() {
   const data = {
@@ -180,39 +181,45 @@ function App() {
   };
 
   return (
-    <>
-      <GeneralInfo {...generalInfo} updateInfo={updateGeneralInfo} />
-      <hr />
-      <div>
-        <h2>Education:</h2>
-        {education.map((school) => {
-          return (
-            <Education
-              {...school}
-              key={school.id}
-              updateInfo={updateEducation}
-              deleteSchool={deleteEducation}
-            />
-          );
-        })}
-        <button onClick={addSchool}>Add School</button>
+    <div className="main">
+      
+      <div className="resume">
+        <GeneralInfo {...generalInfo} updateInfo={updateGeneralInfo} />
+        <hr />
+        <hr />
+        <div>
+          <h2>Education:</h2>
+          {education.map((school) => {
+            return (
+              <Education
+                {...school}
+                key={school.id}
+                updateInfo={updateEducation}
+                deleteSchool={deleteEducation}
+              />
+            );
+          })}
+          <button onClick={addSchool}>Add School</button>
+        </div>
+        <hr />
+        <div>
+          <h2>Work Experience:</h2>
+          {workExperience.map((workplace) => {
+            return (
+              <WorkExperience
+                {...workplace}
+                key={workplace.id}
+                updateInfo={updateWorkExperience}
+                deleteWorkplace={deleteWorkExperience}
+              />
+            );
+          })}
+          <button onClick={addWorkplace}>Add Workplace</button>
+        </div>
       </div>
-      <hr />
-      <div>
-        <h2>Work Experience:</h2>
-        {workExperience.map((workplace) => {
-          return (
-            <WorkExperience
-              {...workplace}
-              key={workplace.id}
-              updateInfo={updateWorkExperience}
-              deleteWorkplace={deleteWorkExperience}
-            />
-          );
-        })}
-        <button onClick={addWorkplace}>Add Workplace</button>
-      </div>
-    </>
+
+      <button className="toggle-btn">Toggle Edit Mode</button>
+    </div>
   );
 }
 
